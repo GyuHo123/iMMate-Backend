@@ -1,11 +1,13 @@
 package com.immate.immate.service;
 
 import com.immate.immate.dto.CrewInfo;
+import com.immate.immate.dto.ProfitResponse;
 import com.immate.immate.entity.Crew;
 import com.immate.immate.entity.User;
 import com.immate.immate.repo.CrewRepository;
 import com.immate.immate.repo.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +26,20 @@ public class CrewService {
         return crewRepository.findByUsers_Id(userId).stream()
             .map(this::convertToCrewInfo)
             .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public ProfitResponse getMyTotalProfit(Long userId) {
+        List<Crew> userCrews = crewRepository.findByUsers_Id(userId);
+        
+        double totalProfit = userCrews.stream()
+                .mapToDouble(Crew::getCrewYield)
+                .average()
+                .orElse(0.0);
+
+        return ProfitResponse.builder()
+                .totalProfit(totalProfit)
+                .build();
     }
 
     public List<CrewInfo> getRecommendedCrews(Long userId) {
