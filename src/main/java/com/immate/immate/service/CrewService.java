@@ -56,7 +56,7 @@ public class CrewService {
         List<Crew> differentStyleCrews = crewRepository.findByInvestmentStyleOrderByCrewYieldDesc(user.getInvestmentStyle())
                 .stream()
                 .filter(crew -> !crew.getInvestmentStyle().equals(user.getInvestmentStyle()))
-                .collect(Collectors.toList());
+                .toList();
                 
         if (differentStyleCrews.isEmpty()) {
             throw new RuntimeException("다른 투자 성향의 크루를 찾을 수 없습니다");
