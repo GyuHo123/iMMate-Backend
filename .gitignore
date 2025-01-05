@@ -39,4 +39,6 @@ out/
 /src/main/resources/application.properties
 /src/test/java/com/immate/immate/ImmateApplicationTests.java
 
+### dev ###
 .gitmessage.txt
+docker-compose.yaml
