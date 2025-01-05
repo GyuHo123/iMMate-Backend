@@ -24,7 +24,7 @@ public class BrokerAccountController {
     @Operation(summary = "증권사 계좌 목록 조회", description = "로그인한 사용자의 증권사 계좌 목록과 보유 주식 정보를 조회합니다.")
     @GetMapping
     public ResponseEntity<List<BrokerAccountResponse>> getBrokerAccounts(@AuthenticationPrincipal UserDetails userDetails) {
-        Long userId = Long.parseLong(userDetails.getUsername());
-        return ResponseEntity.ok(brokerAccountService.getBrokerAccounts(userId));
+        String userEmail = userDetails.getUsername();
+        return ResponseEntity.ok(brokerAccountService.getBrokerAccounts(userEmail));
     }
 } 

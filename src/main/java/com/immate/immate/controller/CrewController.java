@@ -21,20 +21,20 @@ public class CrewController {
 
     @GetMapping("/my-crews")
     public ResponseEntity<List<CrewInfo>> getMyCrews(@AuthenticationPrincipal UserDetails userDetails) {
-        Long userId = Long.parseLong(userDetails.getUsername());
-        return ResponseEntity.ok(crewService.getMyCrews(userId));
+        String userEmail = userDetails.getUsername();
+        return ResponseEntity.ok(crewService.getMyCrews(userEmail));
     }
 
     @GetMapping("/my-profit")
     public ResponseEntity<ProfitResponse> getMyTotalProfit(@AuthenticationPrincipal UserDetails userDetails) {
-        Long userId = Long.parseLong(userDetails.getUsername());
-        return ResponseEntity.ok(crewService.getMyTotalProfit(userId));
+        String userEmail = userDetails.getUsername();
+        return ResponseEntity.ok(crewService.getMyTotalProfit(userEmail));
     }
 
     @GetMapping("/recommended")
     public ResponseEntity<List<CrewInfo>> getRecommendedCrews(@AuthenticationPrincipal UserDetails userDetails) {
-        Long userId = Long.parseLong(userDetails.getUsername());
-        return ResponseEntity.ok(crewService.getRecommendedCrews(userId));
+        String userEmail = userDetails.getUsername();
+        return ResponseEntity.ok(crewService.getRecommendedCrews(userEmail));
     }
 
     @GetMapping("/top-ranking")

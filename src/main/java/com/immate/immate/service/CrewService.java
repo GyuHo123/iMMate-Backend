@@ -22,15 +22,19 @@ public class CrewService {
         this.userRepository = userRepository;
     }
 
-    public List<CrewInfo> getMyCrews(Long userId) {
-        return crewRepository.findByUsers_Id(userId).stream()
+    public List<CrewInfo> getMyCrews(String userEmail) {
+        User user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다"));
+        return crewRepository.findByUsers_Id(user.getId()).stream()
             .map(this::convertToCrewInfo)
             .collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public ProfitResponse getMyTotalProfit(Long userId) {
-        List<Crew> userCrews = crewRepository.findByUsers_Id(userId);
+    public ProfitResponse getMyTotalProfit(String userEmail) {
+        User user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다"));
+        List<Crew> userCrews = crewRepository.findByUsers_Id(user.getId());
         
         double totalProfit = userCrews.stream()
                 .mapToDouble(Crew::getCrewYield)
@@ -42,8 +46,8 @@ public class CrewService {
                 .build();
     }
 
-    public List<CrewInfo> getRecommendedCrews(Long userId) {
-        User user = userRepository.findById(userId)
+    public List<CrewInfo> getRecommendedCrews(String userEmail) {
+        User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다"));
 
         // 사용자와 같은 투자 성향의 크루 1개
