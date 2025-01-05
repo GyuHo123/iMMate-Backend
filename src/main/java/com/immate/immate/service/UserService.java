@@ -1,6 +1,7 @@
 package com.immate.immate.service;
 
 import com.immate.immate.dto.SignupRequest;
+import com.immate.immate.dto.UserInfo;
 import com.immate.immate.entity.User;
 import com.immate.immate.repo.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,5 +33,21 @@ public class UserService {
                 .build();
 
         userRepository.save(user);
+    }
+
+    @Transactional(readOnly = true)
+    public UserInfo getUserProfile(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다"));
+
+        return convertToUserInfo(user);
+    }
+
+    private UserInfo convertToUserInfo(User user) {
+        return new UserInfo(
+            user.getEmail(),
+            user.getName(),
+            user.getInvestmentStyle()
+        );
     }
 }
