@@ -3,7 +3,6 @@ package com.immate.immate.service;
 import com.immate.immate.entity.investment.CrewInvestment;
 import com.immate.immate.entity.investment.InvestmentStock;
 import com.immate.immate.entity.vote.StockVote;
-import com.immate.immate.entity.user.User;
 import com.immate.immate.exception.InvalidInvestmentStateException;
 import com.immate.immate.exception.InvalidVoteException;
 import com.immate.immate.repo.CrewInvestmentRepository;

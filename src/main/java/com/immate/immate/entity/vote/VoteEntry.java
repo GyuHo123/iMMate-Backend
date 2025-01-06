@@ -36,4 +36,4 @@ public class VoteEntry {
     public enum VoteOption {
         BUY, HOLD, SELL
     }
-} 
+}
