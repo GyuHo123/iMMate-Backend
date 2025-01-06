@@ -1,8 +1,9 @@
-package com.immate.immate.entity;
+package com.immate.immate.entity.stock;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import com.immate.immate.entity.user.User;
 
 import java.util.ArrayList;
 import java.util.List;

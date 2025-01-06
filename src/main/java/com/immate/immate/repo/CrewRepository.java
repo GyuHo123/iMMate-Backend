@@ -1,6 +1,6 @@
 package com.immate.immate.repo;
 
-import com.immate.immate.entity.Crew;
+import com.immate.immate.entity.user.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

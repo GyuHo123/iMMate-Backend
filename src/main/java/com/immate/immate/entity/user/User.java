@@ -1,4 +1,4 @@
-package com.immate.immate.entity;
+package com.immate.immate.entity.user;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

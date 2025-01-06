@@ -2,7 +2,7 @@ package com.immate.immate.service;
 
 import com.immate.immate.dto.SignupRequest;
 import com.immate.immate.dto.UserInfo;
-import com.immate.immate.entity.User;
+import com.immate.immate.entity.user.User;
 import com.immate.immate.repo.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

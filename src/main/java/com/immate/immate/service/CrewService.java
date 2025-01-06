@@ -2,8 +2,7 @@ package com.immate.immate.service;
 
 import com.immate.immate.dto.CrewInfo;
 import com.immate.immate.dto.ProfitResponse;
-import com.immate.immate.entity.Crew;
-import com.immate.immate.entity.User;
+import com.immate.immate.entity.user.*;
 import com.immate.immate.repo.CrewRepository;
 import com.immate.immate.repo.UserRepository;
 import org.springframework.stereotype.Service;

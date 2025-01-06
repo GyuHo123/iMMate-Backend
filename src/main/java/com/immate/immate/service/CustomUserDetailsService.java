@@ -1,6 +1,6 @@
 package com.immate.immate.service;
 
-import com.immate.immate.entity.User;
+import com.immate.immate.entity.user.User;
 import com.immate.immate.repo.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

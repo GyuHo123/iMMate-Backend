@@ -2,9 +2,9 @@ package com.immate.immate.service;
 
 import com.immate.immate.dto.BrokerAccountResponse;
 import com.immate.immate.dto.StockResponse;
-import com.immate.immate.entity.BrokerAccount;
-import com.immate.immate.entity.Stock;
-import com.immate.immate.entity.User;
+import com.immate.immate.entity.stock.BrokerAccount;
+import com.immate.immate.entity.stock.Stock;
+import com.immate.immate.entity.user.User;
 import com.immate.immate.repo.BrokerAccountRepository;
 import com.immate.immate.repo.UserRepository;
 import lombok.RequiredArgsConstructor;
